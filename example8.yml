@@ -1,0 +1,20 @@
+---
+
+#This peoplw iwth them plenty wahala sef
+#Wetin dem plan to achieve with this them jara?
+#Handlers are triggered by a "notify"
+
+- hosts: appservers
+  vars: 
+     Our_Required_app_name: httpd
+  tasks:
+  - name: Update all OS packages and patches
+    shell: yum update -y
+    sudo: yes
+  - name: Install Our Required App 
+    yum: state=present name={{Our_Required_app_name}}
+    sudo: yes
+  handlers:
+  - name: Start Our Desired App service
+    service: state=started name=httpd
+    sudo: yes

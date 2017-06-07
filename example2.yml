@@ -1,0 +1,10 @@
+---
+- hosts: webservers
+  tasks:
+  - name: Please apply update to all OS Platforms
+    shell: yum update -y
+    sudo: yes
+  - name: Install One required application for AWS Instance
+    shell: yum install -y git
+    sudo: yes
+
