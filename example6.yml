@@ -1,0 +1,2 @@
+---
+- include: example5.yml our_desired_package_name=nginx

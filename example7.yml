@@ -1,0 +1,14 @@
+---
+- hosts: webservers
+  vars: 
+     desired_app_name: httpd
+  tasks:
+  - name: Update all OS packages and patches
+    shell: yum update -y
+    sudo: yes
+  - name: Install Desired App 
+    yum: state=present name={{desired_app_name}}
+    sudo: yes
+  - name: Start Desired  App service
+    service: state=started name=httpd
+    sudo: yes

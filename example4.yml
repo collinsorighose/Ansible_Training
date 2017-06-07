@@ -1,0 +1,7 @@
+---
+- include: example1.yml
+- hosts: webservers
+  tasks:
+  - name: Install one required application to AWS Instance
+    yum: state=present name=git
+    sudo: yes 

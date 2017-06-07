@@ -1,0 +1,8 @@
+---
+- include: example1.yml
+- hosts: webservers
+  tasks:
+  - name: Install one required application for AWS Instance
+    shell: yum install httpd -y
+    sudo: yes
+
